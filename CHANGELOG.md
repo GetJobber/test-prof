@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Replace deprecated `ActiveRecord::Base.connection` with `lease_connection` for Rails 7.2+ compatibility. ([@fady-a][])
+
 ## 1.6.1 (2026-04-02)
 
 - Require MFA to publish the gem.
@@ -506,3 +508,4 @@ See [changelog](https://github.com/test-prof/test-prof/blob/v0.8.0/CHANGELOG.md)
 [@elasticspoon]: https://github.com/elasticspoon
 [@Rylan12]: https://github.com/Rylan12
 [@kddnewton]: https://github.com/kddnewton
+[@fady-a]: https://github.com/fady-a

@@ -17,7 +17,7 @@ describe TestProf::BeforeAll::Adapters::ActiveRecord do
     describe ".begin_transaction" do
       subject { ::TestProf::BeforeAll::Adapters::ActiveRecord.begin_transaction }
 
-      if ::ActiveRecord::Base.connection.pool.respond_to?(:pin_connection!)
+      if ::ActiveRecord::ConnectionAdapters::ConnectionPool.method_defined?(:pin_connection!)
         it "calls pin_connection! on all available connections" do
           expect(connection_pool).to receive(:pin_connection!).with(true)
 
@@ -35,7 +35,7 @@ describe TestProf::BeforeAll::Adapters::ActiveRecord do
     describe ".rollback_transaction" do
       subject { ::TestProf::BeforeAll::Adapters::ActiveRecord.rollback_transaction }
 
-      if ::ActiveRecord::Base.connection.pool.respond_to?(:pin_connection!)
+      if ::ActiveRecord::ConnectionAdapters::ConnectionPool.method_defined?(:pin_connection!)
         it "calls unpin_connection! on all available connections" do
           expect(connection_pool).to receive(:unpin_connection!)
 
@@ -89,7 +89,7 @@ describe TestProf::BeforeAll::Adapters::ActiveRecord do
     describe ".rollback_transaction" do
       subject { ::TestProf::BeforeAll::Adapters::ActiveRecord.rollback_transaction }
 
-      if ::ActiveRecord::Base.connection.pool.respond_to?(:pin_connection!)
+      if ::ActiveRecord::ConnectionAdapters::ConnectionPool.method_defined?(:pin_connection!)
         it "calls #unpin_connection! on each connection" do
           expect(connection_pool_list.first.connection_pool).to receive(:unpin_connection!)
           expect(connection_pool_list.last.connection_pool).to receive(:unpin_connection!)
