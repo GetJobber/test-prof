@@ -2,6 +2,28 @@
 
 ## master (unreleased)
 
+- Replace deprecated `ActiveRecord::Base.connection` with `lease_connection` for Rails 7.2+ compatibility. ([@fady-a][])
+
+## 1.6.1 (2026-04-02)
+
+- Require MFA to publish the gem.
+
+## 1.6.0 (2026-03-18)
+
+- Add TPS profiler. ([@palkan][])
+
+- Add GC profiling to MemoryProf. ([@palkan][])
+
+- Upgrade to Sidekiq 8. ([@palkan][])
+
+- RSpecStamp now uses Prism if available. ([@kddnewton][])
+
+- Upgrade RSpecDissect to show total setup time and let breakdowns. ([@palkan][])
+
+## 1.5.2 (2026-02-03)
+
+- Avoid using `Gem.loaded_specs` methods in RuboCop plugin version check. ([@Rylan12][])
+
 ## 1.5.1 (2026-01-27)
 
 - Fix RuboCop plugin. ([@palkan][])
@@ -484,3 +506,6 @@ See [changelog](https://github.com/test-prof/test-prof/blob/v0.8.0/CHANGELOG.md)
 [@john-h-k]: https://github.com/john-h-k
 [@devinburnette]: https://github.com/devinburnette
 [@elasticspoon]: https://github.com/elasticspoon
+[@Rylan12]: https://github.com/Rylan12
+[@kddnewton]: https://github.com/kddnewton
+[@fady-a]: https://github.com/fady-a
